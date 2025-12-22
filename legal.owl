@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction"
+     xml:base="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:legal="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction"/>
+    
+    <!-- Annotation Properties -->
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Примечание"/>
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсточникДанных"/>
+    
+    <!-- Datatypes -->
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+    
+    <!-- Object Properties -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#имеетИстца">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#имеетОтветчика">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#рассматриваетсяВСуде">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ведетСудья">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#имеетДокумент">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Документ"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#имеетФактор">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#имеетИсход">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#основаноНаНорме">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#представленоКакДоказательство">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#влияетНаИсход">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#имеетАдвоката">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
+    </owl:ObjectProperty>
+    
+    <!-- Data Properties -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#идентификаторДела">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#датаВозбуждения">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#датаРешения">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#суммаИска">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#присужденнаяСумма">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#статьяЗакона">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#описаниеФакта">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФактДела"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#вероятностьИсхода">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#уровеньДоказательности">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФИО">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#типДела">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#сложностьДела">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#стажСудьи">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Classes -->
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Свидетель">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Участник"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Документ"/>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Документ"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Документ"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Документ"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Документ"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФактДела">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#РепутацияСудьи">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#АктивностьСторон">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФакторПрогнозирования"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#УдовлетворениеИска">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ОтказВИске">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СоглашениеСторон">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПрогнозируемыйИсход"/>
+    </owl:Class>
+    
+    <!-- Individuals -->
+    
+    <!-- Дела -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <legal:идентификаторДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">А40-123456/2023</legal:идентификаторДела>
+        <legal:датаВозбуждения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-10-15</legal:датаВозбуждения>
+        <legal:типДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Договорной спор</legal:типДела>
+        <legal:сложностьДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Средняя</legal:сложностьДела>
+        <legal:имеетИстца rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Иванов"/>
+        <legal:имеетОтветчика rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_Петров"/>
+        <legal:рассматриваетсяВСуде rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_Москвы"/>
+        <legal:ведетСудья rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Сидоров"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_001"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Договор_займа_001"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_неуплата"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_сильные"/>
+        <legal:имеетИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_удовлетворение"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_002">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <legal:идентификаторДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2-5432/2023</legal:идентификаторДела>
+        <legal:датаВозбуждения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-09-20</legal:датаВозбуждения>
+        <legal:типДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Защита прав потребителей</legal:типДела>
+        <legal:сложностьДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Низкая</legal:сложностьДела>
+        <legal:имеетИстца rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Смирнова"/>
+        <legal:имеетОтветчика rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ООО_Техно"/>
+        <legal:рассматриваетсяВСуде rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Мировой_суд_района_ЦАО"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_002"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_средние"/>
+        <legal:имеетИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение"/>
+    </owl:NamedIndividual>
+    
+    <!-- Участники -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Иванов">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Иванов Иван Иванович</legal:ФИО>
+        <legal:имеетАдвоката rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Петрова"/>
+        <legal:представленоКакДоказательство rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Договор_займа_001"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_Петров">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Петров Петр Петрович</legal:ФИО>
+        <legal:имеетАдвоката rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Сидоров"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Смирнова">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Смирнова Мария Сергеевна</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ООО_Техно">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ООО "ТехноСити"</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Сидоров">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Сидоров Алексей Викторович</legal:ФИО>
+        <legal:стажСудьи rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</legal:стажСудьи>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Петрова">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Петрова Елена Александровна</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Сидоров">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Сидоров Дмитрий Олегович</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <!-- Суды -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_Москвы">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Мировой_суд_района_ЦАО">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    </owl:NamedIndividual>
+    
+    <!-- Документы -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <legal:суммаИска rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1000000.00</legal:суммаИска>
+        <legal:основаноНаНорме rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_808_ГК_РФ"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_002">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <legal:суммаИска rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50000.00</legal:суммаИска>
+        <legal:основаноНаНорме rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_15_ЗоЗПП"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Договор_займа_001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_808_ГК_РФ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+        <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 808 ГК РФ - Форма договора займа</legal:статьяЗакона>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_15_ЗоЗПП">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+        <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 15 Закона о защите прав потребителей</legal:статьяЗакона>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судебное_решение_001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
+        <legal:датаРешения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-15</legal:датаРешения>
+        <legal:присужденнаяСумма rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">800000.00</legal:присужденнаяСумма>
+    </owl:NamedIndividual>
+    
+    <!-- Факторы прогнозирования -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_неуплата">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФактДела"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ответчик не вернул денежные средства в установленный срок</legal:описаниеФакта>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_удовлетворение"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_сильные">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств"/>
+        <legal:уровеньДоказательности rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</legal:уровеньДоказательности>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_удовлетворение"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_средние">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств"/>
+        <legal:уровеньДоказательности rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</legal:уровеньДоказательности>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_строгий">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#РепутацияСудьи"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Судья известен строгим соблюдением процедур</legal:описаниеФакта>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Активность_высокая">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#АктивностьСторон"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Стороны активно участвуют в процессе</legal:описаниеФакта>
+    </owl:NamedIndividual>
+    
+    <!-- Прогнозируемые исходы -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_удовлетворение">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#УдовлетворениеИска"/>
+        <legal:вероятностьИсхода rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.85</legal:вероятностьИсхода>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#УдовлетворениеИска"/>
+        <legal:вероятностьИсхода rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.65</legal:вероятностьИсхода>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_отказ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ОтказВИске"/>
+        <legal:вероятностьИсхода rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.25</legal:вероятностьИсхода>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_мировое_соглашение">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СоглашениеСторон"/>
+        <legal:вероятностьИсхода rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.40</legal:вероятностьИсхода>
+    </owl:NamedIndividual>
+    
+</rdf:RDF>
