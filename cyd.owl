@@ -265,6 +265,58 @@
         <legal:имеетИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение"/>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные дела -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <legal:идентификаторДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">А56-789012/2024</legal:идентификаторДела>
+        <legal:датаВозбуждения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-10</legal:датаВозбуждения>
+        <legal:типДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Корпоративный спор</legal:типДела>
+        <legal:сложностьДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Высокая</legal:сложностьДела>
+        <legal:имеетИстца rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_ООО_Альфа"/>
+        <legal:имеетОтветчика rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ООО_Бета"/>
+        <legal:рассматриваетсяВСуде rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_СПб"/>
+        <legal:ведетСудья rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Кузнецова"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_003"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Договор_акционеров"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_нарушение_договора"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_слабые"/>
+        <legal:имеетИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_отказ"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <legal:идентификаторДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">33-4567/2024</legal:идентификаторДела>
+        <legal:датаВозбуждения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-05</legal:датаВозбуждения>
+        <legal:типДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Трудовой спор</legal:типДела>
+        <legal:сложностьДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Средняя</legal:сложностьДела>
+        <legal:имеетИстца rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Козлов"/>
+        <legal:имеетОтветчика rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ООО_Гамма"/>
+        <legal:рассматриваетсяВСуде rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Районный_суд_СВАО"/>
+        <legal:ведетСудья rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Петрова"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_004"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Трудовой_договор"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_невыплата_зарплаты"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Активность_высокая"/>
+        <legal:имеетИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_мировое_соглашение"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_005">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело"/>
+        <legal:идентификаторДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">А41-345678/2023</legal:идентификаторДела>
+        <legal:датаВозбуждения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-11-30</legal:датаВозбуждения>
+        <legal:типДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Налоговый спор</legal:типДела>
+        <legal:сложностьДела rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Высокая</legal:сложностьДела>
+        <legal:имеетИстца rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_ООО_Дельта"/>
+        <legal:имеетОтветчика rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ФНС"/>
+        <legal:рассматриваетсяВСуде rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_Московской_области"/>
+        <legal:ведетСудья rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Смирнов"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_005"/>
+        <legal:имеетДокумент rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Налоговая_проверка"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_ошибка_в_расчетах"/>
+        <legal:имеетФактор rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_очень_сильные"/>
+        <legal:имеетИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение_2"/>
+    </owl:NamedIndividual>
+    
     <!-- Участники -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Иванов">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
@@ -289,12 +341,66 @@
         <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ООО "ТехноСити"</legal:ФИО>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные участники -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_ООО_Альфа">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ООО "Альфа"</legal:ФИО>
+        <legal:имеетАдвоката rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Кузнецов"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ООО_Бета">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ООО "Бета"</legal:ФИО>
+        <legal:имеетАдвоката rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Иванова"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_Козлов">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Козлов Андрей Владимирович</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ООО_Гамма">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ООО "Гамма"</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец_ООО_Дельта">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Истец"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ООО "Дельта"</legal:ФИО>
+        <legal:имеетАдвоката rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Федоров"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик_ФНС">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Ответчик"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Федеральная налоговая служба</legal:ФИО>
+    </owl:NamedIndividual>
+    
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Сидоров">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
         <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Сидоров Алексей Викторович</legal:ФИО>
         <legal:стажСудьи rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</legal:стажСудьи>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные судьи -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Кузнецова">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Кузнецова Елена Петровна</legal:ФИО>
+        <legal:стажСудьи rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</legal:стажСудьи>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Петрова">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Петрова Ольга Сергеевна</legal:ФИО>
+        <legal:стажСудьи rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</legal:стажСудьи>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_Смирнов">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Смирнов Михаил Александрович</legal:ФИО>
+        <legal:стажСудьи rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</legal:стажСудьи>
+    </owl:NamedIndividual>
+    
+    <!-- Адвокаты -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Петрова">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
         <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Петрова Елена Александровна</legal:ФИО>
@@ -305,12 +411,41 @@
         <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Сидоров Дмитрий Олегович</legal:ФИО>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные адвокаты -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Кузнецов">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Кузнецов Игорь Витальевич</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Иванова">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Иванова Анна Дмитриевна</legal:ФИО>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат_Федоров">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Адвокат"/>
+        <legal:ФИО rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Федоров Сергей Николаевич</legal:ФИО>
+    </owl:NamedIndividual>
+    
     <!-- Суды -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_Москвы">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
     </owl:NamedIndividual>
     
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Мировой_суд_района_ЦАО">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    </owl:NamedIndividual>
+    
+    <!-- Дополнительные суды -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_СПб">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Районный_суд_СВАО">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Арбитражный_суд_Московской_области">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Суд"/>
     </owl:NamedIndividual>
     
@@ -327,10 +462,44 @@
         <legal:основаноНаНорме rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_15_ЗоЗПП"/>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные исковые заявления -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <legal:суммаИска rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2500000.00</legal:суммаИска>
+        <legal:основаноНаНорме rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_10_ФЗ_об_ООО"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <legal:суммаИска rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">350000.00</legal:суммаИска>
+        <legal:основаноНаНорме rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_236_ТК_РФ"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Исковое_заявление_005">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ИсковоеЗаявление"/>
+        <legal:суммаИска rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1800000.00</legal:суммаИска>
+        <legal:основаноНаНорме rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_78_НК_РФ"/>
+    </owl:NamedIndividual>
+    
+    <!-- Доказательства -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Договор_займа_001">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство"/>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные доказательства -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Договор_акционеров">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Трудовой_договор">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Налоговая_проверка">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательство"/>
+    </owl:NamedIndividual>
+    
+    <!-- Правовые нормы -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_808_ГК_РФ">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
         <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 808 ГК РФ - Форма договора займа</legal:статьяЗакона>
@@ -341,10 +510,46 @@
         <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 15 Закона о защите прав потребителей</legal:статьяЗакона>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные правовые нормы -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_10_ФЗ_об_ООО">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+        <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 10 ФЗ "Об обществах с ограниченной ответственностью"</legal:статьяЗакона>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_236_ТК_РФ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+        <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 236 ТК РФ - Материальная ответственность работодателя</legal:статьяЗакона>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Статья_78_НК_РФ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ПравоваяНорма"/>
+        <legal:статьяЗакона rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Статья 78 НК РФ - Зачет или возврат излишне уплаченных налогов</legal:статьяЗакона>
+    </owl:NamedIndividual>
+    
+    <!-- Судебные решения -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судебное_решение_001">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
         <legal:датаРешения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-15</legal:датаРешения>
         <legal:присужденнаяСумма rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">800000.00</legal:присужденнаяСумма>
+    </owl:NamedIndividual>
+    
+    <!-- Дополнительные судебные решения -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судебное_решение_003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
+        <legal:датаРешения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-05-20</legal:датаРешения>
+        <legal:присужденнаяСумма rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.00</legal:присужденнаяСумма>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судебное_решение_004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
+        <legal:датаРешения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-10</legal:датаРешения>
+        <legal:присужденнаяСумма rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">280000.00</legal:присужденнаяСумма>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судебное_решение_005">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СудебноеРешение"/>
+        <legal:датаРешения rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-04-25</legal:датаРешения>
+        <legal:присужденнаяСумма rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1200000.00</legal:присужденнаяСумма>
     </owl:NamedIndividual>
     
     <!-- Факторы прогнозирования -->
@@ -354,6 +559,26 @@
         <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_удовлетворение"/>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные факты дел -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_нарушение_договора">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФактДела"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Нарушение условий акционерного соглашения</legal:описаниеФакта>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_отказ"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_невыплата_зарплаты">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФактДела"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Задержка выплаты заработной платы на 3 месяца</legal:описаниеФакта>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_мировое_соглашение"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Факт_ошибка_в_расчетах">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#ФактДела"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ошибка в налоговых расчетах со стороны ФНС</legal:описаниеФакта>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение_2"/>
+    </owl:NamedIndividual>
+    
+    <!-- Качество доказательств -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_сильные">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств"/>
         <legal:уровеньДоказательности rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</legal:уровеньДоказательности>
@@ -366,14 +591,46 @@
         <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение"/>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные качества доказательств -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_слабые">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств"/>
+        <legal:уровеньДоказательности rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</legal:уровеньДоказательности>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_отказ"/>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Доказательства_очень_сильные">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#КачествоДоказательств"/>
+        <legal:уровеньДоказательности rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</legal:уровеньДоказательности>
+        <legal:влияетНаИсход rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение_2"/>
+    </owl:NamedIndividual>
+    
+    <!-- Репутация судей -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_строгий">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#РепутацияСудьи"/>
         <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Судья известен строгим соблюдением процедур</legal:описаниеФакта>
     </owl:NamedIndividual>
     
+    <!-- Дополнительные репутации судей -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_лояльный">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#РепутацияСудьи"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Судья часто идет навстречу истцам</legal:описаниеФакта>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Судья_непредсказуемый">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#РепутацияСудьи"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Судья принимает неожиданные решения</legal:описаниеФакта>
+    </owl:NamedIndividual>
+    
+    <!-- Активность сторон -->
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Активность_высокая">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#АктивностьСторон"/>
         <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Стороны активно участвуют в процессе</legal:описаниеФакта>
+    </owl:NamedIndividual>
+    
+    <!-- Дополнительная активность сторон -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Активность_низкая">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#АктивностьСторон"/>
+        <legal:описаниеФакта rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Одна из сторон пассивна в процессе</legal:описаниеФакта>
     </owl:NamedIndividual>
     
     <!-- Прогнозируемые исходы -->
@@ -395,6 +652,28 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_мировое_соглашение">
         <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#СоглашениеСторон"/>
         <legal:вероятностьИсхода rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.40</legal:вероятностьИсхода>
+    </owl:NamedIndividual>
+    
+    <!-- Дополнительные прогнозы -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Прогноз_частичное_удовлетворение_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#УдовлетворениеИска"/>
+        <legal:вероятностьИсхода rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.75</legal:вероятностьИсхода>
+    </owl:NamedIndividual>
+    
+    <!-- Аннотации для примера -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_001">
+        <legal:Примечание rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Пример дела по договору займа с сильными доказательствами</legal:Примечание>
+        <legal:ИсточникДанных rdf:datatype="http://www.w3.org/2001/XMLSchema#string">База данных арбитражных судов РФ</legal:ИсточникДанных>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_003">
+        <legal:Примечание rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Корпоративный спор между акционерами</legal:Примечание>
+        <legal:ИсточникДанных rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Картотека арбитражных дел СПб</legal:ИсточникДанных>
+    </owl:NamedIndividual>
+    
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user1/ontologies/2025/8/legal-prediction#Дело_005">
+        <legal:Примечание rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Спор с налоговыми органами о возврате излишне уплаченного налога</legal:Примечание>
+        <legal:ИсточникДанных rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Архив арбитражного суда Московской области</legal:ИсточникДанных>
     </owl:NamedIndividual>
     
 </rdf:RDF>
