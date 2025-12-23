@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Прогнозы исходов дел</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .filter-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-btn:hover {
+            background-color: #c0392b;
+        }
+        .filter-btn.reset {
+            background-color: #95a5a6;
+        }
+        .filter-btn.reset:hover {
+            background-color: #7f8c8d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        th a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        th a:hover {
+            text-decoration: underline;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ffeaea;
+        }
+        .probability {
+            font-weight: bold;
+        }
+        .probability.high {
+            color: #27ae60;
+        }
+        .probability.medium {
+            color: #f39c12;
+        }
+        .probability.low {
+            color: #e74c3c;
+        }
+        .outcome {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #7f8c8d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #636e72;
+        }
+        .sort-indicator {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .results-count {
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Прогнозы исходов судебных дел</h1>
+    
+    <!-- Форма фильтрации -->
+    <div class="filters">
+        <form method="get" action="/predictions">
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="case_id">Номер дела:</label>
+                    <input type="text" id="case_id" name="case_id" value="{{ filter_case_id }}" 
+                           placeholder="Введите номер дела">
+                </div>
+                <div class="filter-item">
+                    <label for="outcome">Исход:</label>
+                    <select id="outcome" name="outcome">
+                        <option value="">Все исходы</option>
+                        {% for outcome in outcomes %}
+                        <option value="{{ outcome }}" {% if filter_outcome == outcome %}selected{% endif %}>
+                            {{ outcome }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="min_prob">Вероятность от (%):</label>
+                    <input type="number" id="min_prob" name="min_prob" value="{{ filter_min_prob }}" 
+                           min="0" max="100" step="1" placeholder="0">
+                </div>
+                <div class="filter-item">
+                    <label for="max_prob">Вероятность до (%):</label>
+                    <input type="number" id="max_prob" name="max_prob" value="{{ filter_max_prob }}" 
+                           min="0" max="100" step="1" placeholder="100">
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="court">Суд:</label>
+                    <select id="court" name="court">
+                        <option value="">Все суды</option>
+                        {% for court in courts %}
+                        <option value="{{ court }}" {% if filter_court == court %}selected{% endif %}>
+                            {{ court }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="judge">Судья:</label>
+                    <select id="judge" name="judge">
+                        <option value="">Все судьи</option>
+                        {% for judge in judges %}
+                        <option value="{{ judge }}" {% if filter_judge == judge %}selected{% endif %}>
+                            {{ judge }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Скрытые поля для сортировки -->
+            <input type="hidden" name="sort" value="{{ sort_by }}">
+            <input type="hidden" name="order" value="{{ sort_order }}">
+            
+            <div class="filter-buttons">
+                <button type="submit" class="filter-btn">Применить фильтры</button>
+                <button type="button" class="filter-btn reset" onclick="window.location.href='/predictions'">
+                    Сбросить фильтры
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="results-count">Найдено прогнозов: {{ predictions|length }}</div>
+    
+    <table>
+        <tr>
+            <th>
+                <a href="?sort=caseId&order={% if sort_by == 'caseId' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&outcome={{ filter_outcome }}&min_prob={{ filter_min_prob }}&max_prob={{ filter_max_prob }}&court={{ filter_court }}&judge={{ filter_judge }}">
+                    Номер дела
+                    {% if sort_by == 'caseId' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=outcome&order={% if sort_by == 'outcome' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&outcome={{ filter_outcome }}&min_prob={{ filter_min_prob }}&max_prob={{ filter_max_prob }}&court={{ filter_court }}&judge={{ filter_judge }}">
+                    Прогнозируемый исход
+                    {% if sort_by == 'outcome' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=probability&order={% if sort_by == 'probability' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&outcome={{ filter_outcome }}&min_prob={{ filter_min_prob }}&max_prob={{ filter_max_prob }}&court={{ filter_court }}&judge={{ filter_judge }}">
+                    Вероятность
+                    {% if sort_by == 'probability' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=court&order={% if sort_by == 'court' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&outcome={{ filter_outcome }}&min_prob={{ filter_min_prob }}&max_prob={{ filter_max_prob }}&court={{ filter_court }}&judge={{ filter_judge }}">
+                    Суд
+                    {% if sort_by == 'court' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=judge&order={% if sort_by == 'judge' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&outcome={{ filter_outcome }}&min_prob={{ filter_min_prob }}&max_prob={{ filter_max_prob }}&court={{ filter_court }}&judge={{ filter_judge }}">
+                    Судья
+                    {% if sort_by == 'judge' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+        </tr>
+        {% for prediction in predictions %}
+        <tr>
+            <td>{{ prediction.caseId }}</td>
+            <td class="outcome">{{ prediction.outcome }}</td>
+            <td>
+                <span class="probability {% if prediction.probability_percent > 70 %}high{% elif prediction.probability_percent > 40 %}medium{% else %}low{% endif %}">
+                    {{ "%.0f"|format(prediction.probability_percent) }}%
+                </span>
+            </td>
+            <td>{{ prediction.court }}</td>
+            <td>{{ prediction.judge }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% if not predictions %}
+    <div style="text-align: center; margin-top: 20px; color: #e74c3c;">
+        По заданным фильтрам прогнозов не найдено.
+    </div>
+    {% endif %}
+    
+    <br>
+    <a href="/" class="back-btn">Назад на главную</a>
+</body>
+</html>

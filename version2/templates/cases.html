@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Судебные дела</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .filter-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-btn:hover {
+            background-color: #2980b9;
+        }
+        .filter-btn.reset {
+            background-color: #95a5a6;
+        }
+        .filter-btn.reset:hover {
+            background-color: #7f8c8d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        th a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        th a:hover {
+            text-decoration: underline;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #7f8c8d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #636e72;
+        }
+        .case-id {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .sort-indicator {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .results-count {
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Судебные дела</h1>
+    
+    <!-- Форма фильтрации -->
+    <div class="filters">
+        <form method="get" action="/cases">
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="case_id">Номер дела:</label>
+                    <input type="text" id="case_id" name="case_id" value="{{ filter_case_id }}" 
+                           placeholder="Введите номер дела">
+                </div>
+                <div class="filter-item">
+                    <label for="case_type">Тип дела:</label>
+                    <select id="case_type" name="case_type">
+                        <option value="">Все типы</option>
+                        {% for case_type in case_types %}
+                        <option value="{{ case_type }}" {% if filter_type == case_type %}selected{% endif %}>
+                            {{ case_type }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="complexity">Сложность:</label>
+                    <select id="complexity" name="complexity">
+                        <option value="">Любая сложность</option>
+                        {% for complexity in complexities %}
+                        <option value="{{ complexity }}" {% if filter_complexity == complexity %}selected{% endif %}>
+                            {{ complexity }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="plaintiff">Истец:</label>
+                    <input type="text" id="plaintiff" name="plaintiff" value="{{ filter_plaintiff }}" 
+                           placeholder="ФИО истца">
+                </div>
+                <div class="filter-item">
+                    <label for="defendant">Ответчик:</label>
+                    <input type="text" id="defendant" name="defendant" value="{{ filter_defendant }}" 
+                           placeholder="ФИО ответчика">
+                </div>
+            </div>
+            
+            <!-- Скрытые поля для сохранения сортировки при фильтрации -->
+            <input type="hidden" name="sort" value="{{ sort_by }}">
+            <input type="hidden" name="order" value="{{ sort_order }}">
+            
+            <div class="filter-buttons">
+                <button type="submit" class="filter-btn">Применить фильтры</button>
+                <button type="button" class="filter-btn reset" onclick="window.location.href='/cases'">
+                    Сбросить фильтры
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Таблица с делами -->
+    <div class="results-count">Найдено дел: {{ cases|length }}</div>
+    
+    <table>
+        <tr>
+            <th>
+                <a href="?sort=caseId&order={% if sort_by == 'caseId' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&case_type={{ filter_type }}&complexity={{ filter_complexity }}&plaintiff={{ filter_plaintiff }}&defendant={{ filter_defendant }}">
+                    Номер дела
+                    {% if sort_by == 'caseId' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=date&order={% if sort_by == 'date' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&case_type={{ filter_type }}&complexity={{ filter_complexity }}&plaintiff={{ filter_plaintiff }}&defendant={{ filter_defendant }}">
+                    Дата возбуждения
+                    {% if sort_by == 'date' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=type&order={% if sort_by == 'type' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&case_type={{ filter_type }}&complexity={{ filter_complexity }}&plaintiff={{ filter_plaintiff }}&defendant={{ filter_defendant }}">
+                    Тип дела
+                    {% if sort_by == 'type' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=complexity&order={% if sort_by == 'complexity' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&case_type={{ filter_type }}&complexity={{ filter_complexity }}&plaintiff={{ filter_plaintiff }}&defendant={{ filter_defendant }}">
+                    Сложность
+                    {% if sort_by == 'complexity' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=plaintiff&order={% if sort_by == 'plaintiff' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&case_type={{ filter_type }}&complexity={{ filter_complexity }}&plaintiff={{ filter_plaintiff }}&defendant={{ filter_defendant }}">
+                    Истец
+                    {% if sort_by == 'plaintiff' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=defendant&order={% if sort_by == 'defendant' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&case_id={{ filter_case_id }}&case_type={{ filter_type }}&complexity={{ filter_complexity }}&plaintiff={{ filter_plaintiff }}&defendant={{ filter_defendant }}">
+                    Ответчик
+                    {% if sort_by == 'defendant' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+        </tr>
+        {% for case in cases %}
+        <tr>
+            <td class="case-id">{{ case.caseId }}</td>
+            <td>{{ case.date }}</td>
+            <td>{{ case.type }}</td>
+            <td>{{ case.complexity }}</td>
+            <td>{{ case.plaintiff }}</td>
+            <td>{{ case.defendant }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% if not cases %}
+    <div style="text-align: center; margin-top: 20px; color: #e74c3c;">
+        По заданным фильтрам дел не найдено.
+    </div>
+    {% endif %}
+    
+    <br>
+    <a href="/" class="back-btn">Назад на главную</a>
+</body>
+</html>

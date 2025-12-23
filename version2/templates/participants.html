@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Участники судебных процессов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .filter-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-btn:hover {
+            background-color: #8e44ad;
+        }
+        .filter-btn.reset {
+            background-color: #95a5a6;
+        }
+        .filter-btn.reset:hover {
+            background-color: #7f8c8d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #9b59b6;
+            color: white;
+            font-weight: bold;
+        }
+        th a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        th a:hover {
+            text-decoration: underline;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5e6fa;
+        }
+        .type-plaintiff {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .type-defendant {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .type-lawyer {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .type-judge {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        .type-witness {
+            color: #9b59b6;
+            font-weight: bold;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #7f8c8d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #636e72;
+        }
+        .sort-indicator {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .results-count {
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Участники судебных процессов</h1>
+    
+    <!-- Форма фильтрации -->
+    <div class="filters">
+        <form method="get" action="/participants">
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="fio">ФИО:</label>
+                    <input type="text" id="fio" name="fio" value="{{ filter_fio }}" 
+                           placeholder="Введите ФИО">
+                </div>
+                <div class="filter-item">
+                    <label for="participant_type">Тип участника:</label>
+                    <select id="participant_type" name="participant_type">
+                        <option value="Все">Все типы</option>
+                        {% for type in participant_types %}
+                        <option value="{{ type }}" {% if filter_type == type %}selected{% endif %}>
+                            {{ type }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="lawyer">Адвокат:</label>
+                    <input type="text" id="lawyer" name="lawyer" value="{{ filter_lawyer }}" 
+                           placeholder="ФИО адвоката">
+                </div>
+                <div class="filter-item">
+                    <label for="case_id">Номер дела:</label>
+                    <input type="text" id="case_id" name="case_id" value="{{ filter_case_id }}" 
+                           placeholder="Введите номер дела">
+                </div>
+            </div>
+            
+            <!-- Скрытые поля для сортировки -->
+            <input type="hidden" name="sort" value="{{ sort_by }}">
+            <input type="hidden" name="order" value="{{ sort_order }}">
+            
+            <div class="filter-buttons">
+                <button type="submit" class="filter-btn">Применить фильтры</button>
+                <button type="button" class="filter-btn reset" onclick="window.location.href='/participants'">
+                    Сбросить фильтры
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="results-count">Найдено участников: {{ participants|length }}</div>
+    
+    <table>
+        <tr>
+            <th>
+                <a href="?sort=fio&order={% if sort_by == 'fio' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&fio={{ filter_fio }}&participant_type={{ filter_type }}&lawyer={{ filter_lawyer }}&case_id={{ filter_case_id }}">
+                    ФИО
+                    {% if sort_by == 'fio' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=type&order={% if sort_by == 'type' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&fio={{ filter_fio }}&participant_type={{ filter_type }}&lawyer={{ filter_lawyer }}&case_id={{ filter_case_id }}">
+                    Тип участника
+                    {% if sort_by == 'type' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=lawyer&order={% if sort_by == 'lawyer' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&fio={{ filter_fio }}&participant_type={{ filter_type }}&lawyer={{ filter_lawyer }}&case_id={{ filter_case_id }}">
+                    Адвокат
+                    {% if sort_by == 'lawyer' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+            <th>
+                <a href="?sort=caseId&order={% if sort_by == 'caseId' and sort_order == 'asc' %}desc{% else %}asc{% endif %}&fio={{ filter_fio }}&participant_type={{ filter_type }}&lawyer={{ filter_lawyer }}&case_id={{ filter_case_id }}">
+                    Дело
+                    {% if sort_by == 'caseId' %}
+                    <span class="sort-indicator">{{ '▼' if sort_order == 'desc' else '▲' }}</span>
+                    {% endif %}
+                </a>
+            </th>
+        </tr>
+        {% for participant in participants %}
+        <tr>
+            <td>{{ participant.fio }}</td>
+            <td class="type-{{ participant.type|lower }}">
+                {{ participant.type }}
+            </td>
+            <td>{{ participant.lawyer }}</td>
+            <td>{{ participant.caseId }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% if not participants %}
+    <div style="text-align: center; margin-top: 20px; color: #e74c3c;">
+        По заданным фильтрам участников не найдено.
+    </div>
+    {% endif %}
+    
+    <br>
+    <a href="/" class="back-btn">Назад на главную</a>
+</body>
+</html>
